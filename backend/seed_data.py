@@ -1,4 +1,9 @@
 import os
+import django
+
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'rental_portal.settings')
+django.setup()
+
 import urllib.request
 from datetime import date, timedelta
 from django.conf import settings
