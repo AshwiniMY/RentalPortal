@@ -5,7 +5,7 @@ import heroImg from '../assets/hero.jpg'
 function HomePage({ user }) {
     return (
         <div className="bg-white text-gray-800">
-            {/* Hero Section */}
+
             <div 
                 className="relative flex flex-col justify-center items-center text-center px-4 min-h-[440px]"
                 style={{ 
@@ -51,7 +51,7 @@ function HomePage({ user }) {
                 </div>
             </div>
 
-            {/* About Section */}
+
             <div className="max-w-[1200px] mx-auto py-12 px-6">
                 <h2 className="text-[34px] font-bold mb-4 text-[#222]">About Us</h2>
                 <p className="text-[17px] text-[#666] leading-relaxed max-w-3xl">
@@ -59,7 +59,7 @@ function HomePage({ user }) {
                 </p>
             </div>
 
-            {/* Features Section */}
+
             <div className="bg-[#F7F7F7] py-12 mt-6">
                 <div className="max-w-[1200px] mx-auto px-6 mb-12">
                     <h2 className="text-[34px] font-bold mb-8 text-[#222]">Why Choose Us</h2>
