@@ -63,10 +63,6 @@ function LoginPage({ setUser }) {
                     </button>
                 </form>
 
-                <div className="mt-6 p-4 bg-[#F7F7F7] border border-[#E5E5E5] rounded text-[14px] text-[#666]">
-                    <p className="mb-2"><strong className="text-[#222]">User:</strong> Username: ashwini, Password: ashwini1234</p>
-                    <p><strong className="text-[#222]">Admin:</strong> Username: admin, Password: admin1234</p>
-                </div>
 
                 <p className="mt-6 text-[15px] text-center text-[#666]">
                     Don't have an account?{' '}
