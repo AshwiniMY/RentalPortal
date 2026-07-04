@@ -56,7 +56,7 @@ def seed():
             "bhk": 3,
             "description": "Spacious 3 BHK near IT parks with covered parking and modern amenities.",
             "is_available": True,
-            "image_url": "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=800&q=80",
+            "filename": "whitefield.jpg",
             "amenities": ["Gym", "Covered Parking", "Lift", "Power Backup", "24x7 Security"]
         },
         {
@@ -66,7 +66,7 @@ def seed():
             "bhk": 2,
             "description": "Modern apartment close to tech hubs. Family-friendly with good ventilation.",
             "is_available": True,
-            "image_url": "https://images.unsplash.com/photo-1502672260266-1c1cd2cb4442?w=800&q=80",
+            "filename": "electronic.jpg",
             "amenities": ["Swimming Pool", "Gym", "Covered Parking", "Lift", "CCTV Security"]
         },
         {
@@ -76,7 +76,7 @@ def seed():
             "bhk": 3,
             "description": "Luxury high-rise facing the lake. Ideal for executives looking for premium living.",
             "is_available": False,
-            "image_url": "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&q=80",
+            "filename": "bellandur.jpg",
             "amenities": ["Gym", "Swimming Pool", "Covered Parking", "Lift", "Power Backup", "Children's Play Area", "24x7 Security"]
         },
         {
@@ -86,7 +86,7 @@ def seed():
             "bhk": 1,
             "description": "Cozy 1 BHK suitable for working professionals. Tree-lined street and peaceful neighborhood.",
             "is_available": True,
-            "image_url": "https://images.unsplash.com/photo-1515263487990-61b07816b324?w=800&q=80",
+            "filename": "hsr.jpg",
             "amenities": ["Covered Parking", "Lift", "24x7 Security"]
         },
         {
@@ -96,7 +96,7 @@ def seed():
             "bhk": 2,
             "description": "Well-maintained 2 BHK apartment near cafes and shopping areas. Fully secure.",
             "is_available": True,
-            "image_url": "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=800&q=80",
+            "filename": "koramangala.jpg",
             "amenities": ["Gym", "Covered Parking", "Lift", "Power Backup", "CCTV Security"]
         },
     ]
@@ -113,26 +113,10 @@ def seed():
             is_available=data["is_available"]
         )
         
-        # Map location to short filename
-        short_names = {
-            "Whitefield": "whitefield",
-            "Electronic City": "electronic",
-            "Bellandur": "bellandur",
-            "HSR Layout": "hsr",
-            "Koramangala": "koramangala"
-        }
-        
-        dest_filename = f"{short_names.get(data['location'], 'default')}.jpg"
-        dest_path = os.path.join(media_apt_dir, dest_filename)
-        
-        try:
-            # Download placeholder image instead of copying local file
-            urllib.request.urlretrieve(data['image_url'], dest_path)
-            apt.image.name = f"apartments/{dest_filename}"
-            apt.save()
-            print(f"Downloaded and saved image for {data['title']}")
-        except Exception as e:
-            print(f"Failed to download image for {data['title']}: {e}")
+        # Link to the existing images in media/apartments/
+        apt.image.name = f"apartments/{data['filename']}"
+        apt.save()
+        print(f"Linked existing image for {data['title']}")
             
         # Add amenities
         for am_name in data["amenities"]:

@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import heroImg from '../assets/hero.jpg'
 
 function HomePage({ user }) {
     return (
@@ -8,7 +9,7 @@ function HomePage({ user }) {
             <div 
                 className="relative flex flex-col justify-center items-center text-center px-4 min-h-[440px]"
                 style={{ 
-                    backgroundImage: "url('/hero.jpg')", 
+                    backgroundImage: `url(${heroImg})`, 
                     backgroundSize: "cover", 
                     backgroundPosition: "center" 
                 }}
